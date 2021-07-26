@@ -1,0 +1,73 @@
+
+body{
+    background-color: #2F4F4F;
+}
+
+.heading{
+    color: #fff;
+    width: fit-content;
+    text-shadow: 3px 3px 2px #000;
+    border-bottom: 4px solid #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rules{
+    color: lightgray;
+    margin: 5% 25%;
+    width: 100%;
+}
+
+.startBtn{
+    margin: 5% 45%;
+}
+
+.containerStyle{
+    margin-top: 10%;
+}
+/*                                                      Main Card                                                                */
+.main-card{
+    background-color: #F0FFFF;
+}
+
+.card-title{
+    font-size: 30px;
+}
+
+/*                                                      sub Card                                                                */
+
+.sub-card{
+    margin: 4px 0;
+}
+.sub-card:hover{
+    background-color: #40E0D0;
+    transition: all 0.7s;
+}
+
+.show-card{
+    display: block;
+}
+
+.correctAns{
+    background-color: #7CFC00;
+    transition: all 0.4s;
+}
+.wrongAns{
+    background-color: 	#FF4500;
+    transition: all 0.4s;
+
+}
+
+/*                      Cong                                */
+.score-heading{
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+    margin-top: 20px;
+}
+
+/*copyRight*/
+.copy-right{
+    position: absolute;
+    bottom: 0px;
+}
