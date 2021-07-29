@@ -73,18 +73,11 @@ body{
     bottom: 0px;
 }
 
-/* live question number */
-.quesNo{
-    color: lightgray;
-    /* margin-right: 5%; */
-    /* display: inline-block; */
-}
+/* live question number and Score */
 
-/* Live Score */
-.liveScore{
-    color: lightgray;
-    /* margin-left: 60%; */
-    /* display: inline-block; */
-    /* left: 100px; */
-}
 
+.liveScoreAndQuesNo{
+    color: lightgray;
+    display: flex;
+    justify-content: space-between;
+}

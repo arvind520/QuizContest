@@ -108,8 +108,8 @@ var score = 0;
 function createDOMofQuestion(obj){
     var app = document.querySelector('.app');
     // console.log(app);
-    // var liveScoreAndQuesNo = document.createElement('h3');       //Adding live score and question number dom in html
-    // liveScoreAndQuesNo.className ="liveScoreAndQuesNo";
+    var liveScoreAndQuesNo = document.createElement('div');       //Adding live score and question number dom in html
+    liveScoreAndQuesNo.className ="liveScoreAndQuesNo";
 
     var liveScore = document.createElement('span');
     liveScore.textContent = "Current Score: "+score+"/40";
@@ -119,9 +119,9 @@ function createDOMofQuestion(obj){
     quesNo.textContent = "Question Number: "+i+"/20 ";
     quesNo.classList.add("quesNo");
                     
-    app.appendChild(quesNo);
-    app.appendChild(liveScore);
-    // app.appendChild(liveScoreAndQuesNo);                     // it will get remove when next button will click
+    liveScoreAndQuesNo.appendChild(quesNo);
+    liveScoreAndQuesNo.appendChild(liveScore);
+    app.appendChild(liveScoreAndQuesNo);                     // it will get remove when next button will click
     
 
     var divMainCard = document.createElement('div');
