@@ -24,6 +24,7 @@ body{
 
 .containerStyle{
     margin-top: 10%;
+    position: relative;
 }
 /*                                                      Main Card                                                                */
 .main-card{
@@ -58,7 +59,7 @@ body{
 
 }
 
-/*                      Cong                                */
+/* Cong*/
 .score-heading{
     text-align: center;
     color: white;
@@ -71,3 +72,19 @@ body{
     position: absolute;
     bottom: 0px;
 }
+
+/* live question number */
+.quesNo{
+    color: lightgray;
+    /* margin-right: 5%; */
+    /* display: inline-block; */
+}
+
+/* Live Score */
+.liveScore{
+    color: lightgray;
+    /* margin-left: 60%; */
+    /* display: inline-block; */
+    /* left: 100px; */
+}
+

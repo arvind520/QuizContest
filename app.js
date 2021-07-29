@@ -108,7 +108,22 @@ var score = 0;
 function createDOMofQuestion(obj){
     var app = document.querySelector('.app');
     // console.log(app);
+    // var liveScoreAndQuesNo = document.createElement('h3');       //Adding live score and question number dom in html
+    // liveScoreAndQuesNo.className ="liveScoreAndQuesNo";
+
+    var liveScore = document.createElement('span');
+    liveScore.textContent = "Current Score: "+score+"/40";
+    liveScore.classList.add("liveScore");
     
+    var quesNo = document.createElement('span');
+    quesNo.textContent = "Question Number: "+i+"/20 ";
+    quesNo.classList.add("quesNo");
+                    
+    app.appendChild(quesNo);
+    app.appendChild(liveScore);
+    // app.appendChild(liveScoreAndQuesNo);                     // it will get remove when next button will click
+    
+
     var divMainCard = document.createElement('div');
     divMainCard.className = 'card main-card';
 
@@ -144,14 +159,40 @@ function createDOMofQuestion(obj){
     divMainCardBody.appendChild(h5);
     divMainCardBody.appendChild(p);
     
+    
+    // Adding next button
+    var nextBtn = document.createElement('a');
+    nextBtn.className = 'btn btn-primary';
+    nextBtn.innerText = 'Next Question';
+    divMainCard.appendChild(nextBtn);
+
+    // function for generating new question
+    var autoNxtFn = function(){
+        divMainCard.remove();
+        liveScore.remove();
+        quesNo.remove();
+        // clearInterval(autoNxtQuesInterval);
+        createQuestion();
+    }
+
+    
+    // copyright at the bottom of the body
+    var body = document.querySelector('body');
+    var pcr = document.createElement('p');
+    pcr.className = 'copy-right';
+    pcr.textContent ='This project is made by Arvind Chauhan.';
+    body.appendChild(pcr);
+
     ul.addEventListener('click', function(e){   
         // console.log(e.target.textContent == obj['options'][obj.correctOptionIndex]);
         if(e.target.classList.contains('question-ul')){
             //not doing anything because user has clicked on ul not li
-        }else{
+        }
+        else{
             if(e.target.textContent == obj['options'][obj.correctOptionIndex]){
                 score+=2;
                 e.target.classList.add('correctAns');
+                var autoNxtQuesInterval = setTimeout(autoNxtFn, 1000);        //if ans correct automatically move to next question
             }else{ //carefull if we click on ul then ul get wrongAns class
                 e.target.classList.add('wrongAns');
                 score-=1;
@@ -159,24 +200,8 @@ function createDOMofQuestion(obj){
         }
         // console.log(e.target.classList.contains('question-ul'));
     });
-
-    var nextBtn = document.createElement('a');
-    nextBtn.className = 'btn btn-primary';
-    nextBtn.innerText = 'Next Question';
-    divMainCard.appendChild(nextBtn);
-
-    nextBtn.addEventListener('click',function(){
-        divMainCard.remove();
-        createQuestion();
-    });  
     
-    var body = document.querySelector('body');
-    var pcr = document.createElement('p');
-    pcr.className = 'copy-right';
-    pcr.textContent ='This project is made by Arvind Chauhan.';
-    body.appendChild(pcr);
-
-    
+    nextBtn.addEventListener('click', autoNxtFn);  
 }
 
 //Congratulating to user for completions
@@ -219,6 +244,7 @@ function createQuestion(){
     }
 }
 
+//Start Button
 var startBtn = document.querySelector('.startBtn');
 startBtn.addEventListener('click', function(e){
    let heading = document.querySelector('.heading');
