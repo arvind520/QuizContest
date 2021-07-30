@@ -192,7 +192,13 @@ function createDOMofQuestion(obj){
             if(e.target.textContent == obj['options'][obj.correctOptionIndex]){
                 score+=2;
                 e.target.classList.add('correctAns');
-                var autoNxtQuesInterval = setTimeout(autoNxtFn, 1000);        //if ans correct automatically move to next question
+                var autoNxtQuesInterval = setTimeout(autoNxtFn, 1500);        //if ans correct automatically move to next question
+                // disable the button for instance
+                // find closet 
+                let mainCard = e.target.closest(".main-card");
+                // console.log(e.target.closest(".main-card"));
+                let buttonPrimary = mainCard.querySelector('.btn-primary');
+                buttonPrimary.classList.add('disable');
             }else{ //carefull if we click on ul then ul get wrongAns class
                 e.target.classList.add('wrongAns');
                 score-=1;
@@ -217,7 +223,22 @@ function congratulating(){
     h3.textContent = "Your Score: "+ score +" out of 40";
     app.appendChild(h1);
     app.appendChild(h3);
-    
+
+    //creating reset button
+    var restBtn = document.createElement('button');
+    restBtn.textContent = "Restart";
+    restBtn.className = "resetBtn btn btn-primary";
+    app.appendChild(restBtn);    
+    restBtn.addEventListener('click', function(e){
+        h1.remove();
+        h3.remove();
+        restBtn.remove();
+
+        i=0;
+        score=0;
+        questionsAppeared=[];
+        createQuestion();
+    });
 
 }
 

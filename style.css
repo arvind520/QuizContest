@@ -81,3 +81,15 @@ body{
     display: flex;
     justify-content: space-between;
 }
+
+.disable {
+    pointer-events: none !important;
+    cursor: default;
+    color:black;
+    background-color: gray;
+}
+
+.resetBtn{
+    margin-left: 47%;
+    margin-top: 20px;
+}
